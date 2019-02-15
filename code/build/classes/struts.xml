@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	
+
+    <!-- Add packages here -->
+    <include file="struts_sale.xml"/>
+    <include file="struts_client.xml"/>
+    <include file="struts_user.xml" />
+    <include file="struts_service.xml" />
+    <include file="struts_author.xml" />
+    <include file="struts_role.xml" />
+    <include file="struts_dictionary.xml" />
+    <include file="struts_analysis.xml" />
+    <include file="struts_dictionary.xml" />
+    <include file="struts_product.xml" />
+    <include file="struts_language.xml" />
+
+</struts>

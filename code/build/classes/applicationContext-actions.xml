@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	
+	<!--
+	 * 我们的action对象，在此之前是struts容器给我们创建的，
+	 * 而不是Spring IoC给我们创建的，即不是从IOC容器中拿出来，
+	 * 如果要利用Spring IoC容器生成该Actiond对象并取出来，
+	 * 我们就必须需要得到BeanFactory对象，这样的话虽然可以在这类里实现，
+	 * 但是产生了对BeanFactory依赖!!
+	 * 所以在"applicationContext-actions.xml"文件中，仅凭如下配置：
+	 * <bean id="loginAction" class="com.neusoft.web.actions.LoginAction">
+	 *		<property name="userManager" ref="userManager"/>
+	 * </bean>
+	 * 是不起任何作用的！也注入不进来。
+	 * 所以要修改配置文件applicationContext-actions.xml
+	 * 如该文件现在你所看到的样子。
+	 * 将id 属性修改为name
+	 * spring 默认是创建单实例的，在这里，我们可以通过scope="prototype"来创建多实例。 
+	-->
+	<bean name="userAction" class="com.crm.action.UserManageAction">
+		<property name="userService" ref="userService"/>
+		<property name="dicService" ref="dictionService" />
+		<property name="roleService" ref="roleService" />
+	</bean>
+	
+	<bean name="opporAction" class="com.crm.action.OpporManageAction">
+		<property name="opporService" ref="opporService"/>
+		<property name="userService" ref="userService"/>
+		<property name="roleService" ref="roleService"/>
+	</bean>
+	
+	<bean name="planAction" class="com.crm.action.PlanManageAction">
+		<property name="opporService" ref="opporService"/>
+		<property name="planService" ref="planService"/>
+		<property name="clientService" ref="clientService"/>
+		<property name="roleService" ref="roleService"/>
+	</bean>
+	
+	<bean name="clientAction" class="com.crm.action.ClientInfoManageAction">
+		<property name="clientService" ref="clientService"/>
+		<property name="dictionService" ref="dictionService" />
+	</bean>
+	
+	<bean name="clientLoseAction" class="com.crm.action.ClientLoseManageAction">
+		<property name="loseService" ref="loseService" />
+	</bean>
+	
+	<bean name="serviceAction" class="com.crm.action.ServiceManageAction">
+		<property name="service" ref="serService"/>
+		<property name="dicSer" ref="dictionService"/>
+		<property name="userService" ref="userService"/>
+		<property name="roleService" ref="roleService"/>
+	</bean>
+	
+	<bean name="authorAction" class="com.crm.action.AuthorManageAction">
+		<property name="roleService" ref="roleService"/>
+		<property name="authorService" ref="authorService"/>
+	</bean>
+	
+	<bean name="roleAction" class="com.crm.action.RoleManageAction">
+		<property name="roleService" ref="roleService"/>
+		<property name="authorService" ref="authorService"/>
+	</bean>
+	
+	<bean name="dictionAction" class="com.crm.action.DictionManageAction">
+		<property name="dictionService" ref="dictionService"/>
+	</bean>
+	
+	<bean name="analysisAction" class="com.crm.action.AnalysisManageAction">
+		<property name="roleService" ref="roleService"/>
+		<property name="clientService" ref="clientService"/>
+		<property name="dictionService" ref="dictionService"/>
+		<property name="serService" ref="serService"/>
+		<property name="loseService" ref="loseService" />
+	</bean>
+	
+	<bean name="productAction" class="com.crm.action.ProductManageAction">
+		<property name="productService" ref="productService"/>
+	</bean>
+	
+	<bean name="languageAction" class="com.crm.action.LanguageAction">
+	</bean>
+	
+</beans>

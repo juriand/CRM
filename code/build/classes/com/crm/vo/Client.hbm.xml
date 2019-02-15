@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="Client" table="CRM_CLIENT">
+		<id name="client_id" column="CLIENT_ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_CLIENT_SEQ</param> 
+			</generator>
+		</id>
+		<property name="client_name" column="CLIENT_NAME" type="string"/>
+		<property name="client_csr" column="CLIENT_CSR" type="string"/>
+		<property name="client_credit" column="CLIENT_CREDIT" type="string"/>
+		<property name="client_address" column="CLIENT_ADDRESS" type="string"/>
+		<property name="client_postalcode" column="CLIENT_POSTALCODE" type="string"/>
+		<property name="client_phone" column="CLIENT_PHONE" type="string"/>
+		<property name="client_fax" column="CLIENT_FAX" type="string"/>
+		<property name="client_site" column="CLIENT_SITE" type="string"/>
+		<property name="client_bern" column="CLIENT_BERN" type="string"/>
+		<property name="client_corporation" column="CLIENT_CORPORATIOPN" type="string"/>
+		<property name="client_annualsales" column="CLIENT_ANNUALSALES" type="double"/>
+		<property name="client_bank" column="CLIENT_BANK" type="string"/>
+		<property name="client_bankaccount" column="CLIENT_BANKACCOUNT" type="string"/>
+		<property name="client_landtaxregnum" column="CLIENT_LANDTAXREGNUM" type="string"/>
+		<property name="client_nationtaxregnum" column="CLIENT_NATIONTAXREGNUM" type="string"/>
+		<property name="client_regcapital" column="CLIENT_REGCAPITAL" type="double"/>
+	    
+	    <many-to-one name="client_clientmanage" column="CLIENT_CLIENTMANAGE" lazy="false"/>
+	    <many-to-one name="client_area" column="CLIENT_AREA" lazy="false"/>
+	    <many-to-one name="client_level" column="CLIENT_LEVEL" lazy="false"/>
+	    
+	    <set name="contacts"  cascade="all" inverse="true" lazy="false">
+			<key column="CONTACT_CLIENT" />
+			<one-to-many class="com.crm.vo.Contact"/>
+		</set>
+		
+		<set name="commuhistorys"  cascade="all" inverse="true" lazy="false">
+			<key column="COMMUHISTORY_CLIENT" />
+			<one-to-many class="com.crm.vo.CommuHistory"/>
+		</set>
+		
+		<set name="orders"  cascade="all" inverse="true" lazy="false">
+			<key column="HISTORYORDER_CLIENT" />
+			<one-to-many class="com.crm.vo.Order"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

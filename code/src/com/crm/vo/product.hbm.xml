@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="Product" table="CRM_PRODUCT">
+		<id name="product_id" column="PRODUCT_ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_PRODUCT_SEQ</param> 
+			</generator>
+		</id>
+		<property name="product_name" column="PRODUCT_NAME" type="string"/>
+		<property name="product_model" column="PRODUCT_MODEL" type="string"/>
+		<property name="product_batch" column="PRODUCT_BACTH" type="string"/>
+		<property name="product_unit" column="PRODUCT_UNIT" type="string"/>
+		<property name="product_price" column="PRODUCT_PRICE" type="double"/>
+		<property name="product_memo" column="PRODUCT_MEMO" type="string"/>
+		
+	</class>
+</hibernate-mapping>

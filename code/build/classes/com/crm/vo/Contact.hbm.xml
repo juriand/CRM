@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="Contact" table="CRM_CONTACT">
+		<id name="contact_id" column="CONTACT_ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_CONTACT_SEQ</param> 
+			</generator>
+		</id>
+		<property name="contact_name" column="CONTACT_NAME" type="string"/>
+		<property name="contact_gender" column="CONTACT_GENDER" type="string"/>
+		<property name="contact_position" column="CONTACT_POSITION" type="string"/>
+		<property name="contact_officephone" column="CONTACT_OFFICEPHONE" type="string"/>
+		<property name="contact_telephone" column="CONTACT_TELEPHONE" type="string"/>
+		<property name="contact_memo" column="CONTACT_MEMO" type="string"/>
+		
+		<many-to-one name="contact_client" column="CONTACT_CLIENT" lazy="false"/>
+	</class>
+</hibernate-mapping>

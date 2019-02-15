@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+	
+
+    <!-- Add packages here -->
+    
+    <package name="service" namespace="/serviceManage" extends="struts-default">
+		<action name="service" class="serviceAction">
+		    <result name="loadSerTpSuceess">/serviceManage/service_add.jsp</result>
+			<result name="success">/serviceManage/service_assign.jsp</result>
+			<result name="loadServiceDealSuccess">/serviceManage/service_deal.jsp</result>
+			<result name="loadIntoDealIn">/serviceManage/service_deal_in.jsp</result>
+			<result name="loadServiceFeedSuccess">/serviceManage/service_feedback.jsp</result>
+			<result name="loadIntoFeedBackIn">/serviceManage/service_feedback_in.jsp</result>
+			<result name="loadServiceArchivedSuccess">/serviceManage/service_archived.jsp</result>
+			<result name="loadIntoArchivedIn">/serviceManage/service_archived_in.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action> 
+		
+    
+    </package>
+    
+  
+
+</struts>

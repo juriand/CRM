@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+	
+
+    <!-- Add packages here -->
+    <!--  
+    <package name="userlogin" extends="struts-default">
+		<action name="user" class="userAction" >
+			<result name="login_false" type="dispatcher">/login.jsp</result>
+			<result name="login_success" type="dispatcher">/index.jsp</result>
+			<result name="exit" type="dispatcher">/login.jsp</result>
+		</action> 
+
+    </package>
+    -->
+
+  
+
+</struts>

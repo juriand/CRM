@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+	
+
+    <!-- Add packages here -->
+
+    <package name="salemanage" namespace="/saleManage" extends="struts-default">
+		<action name="oppor" class="opporAction">
+			<result name="success">/saleManage/opporManage.jsp</result>
+			<result name="view">/saleManage/oppor_view.jsp</result>
+			<result name="plan">/saleManage/clientPlan.jsp</result>
+		</action> 
+		
+		<action name="plan" class="planAction">
+			<result name="view">/saleManage/plan_view.jsp</result>
+		</action>
+    
+    </package>
+    
+  
+
+</struts>

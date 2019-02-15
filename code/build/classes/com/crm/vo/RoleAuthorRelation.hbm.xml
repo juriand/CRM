@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="RoleAuthorRelation" table="CRM_ROLE_AUTHORITY">
+		<id name="id" column="ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_RELATION_SEQ</param>
+			</generator>
+		</id>
+		
+		<many-to-one name="role" column="ROLE_ID" lazy="false"/>
+		<many-to-one name="authority" column="AUTHORITY_ID" lazy="false"/>
+
+	</class>
+</hibernate-mapping>

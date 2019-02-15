@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="User" table="CRM_USER">
+		<id name="user_id" column="USER_ID" type="string"/>
+		<property name="user_nickname" column="USER_NICKNAME" type="string"/>
+		<property name="user_password" column="USER_PASSWORD" type="string"/>
+		<property name="user_icon" column="USER_ICON" type="string"/>
+		<property name="user_email" column="USER_EMAIL" type="string"/>
+		
+		<many-to-one name="user_role" column="USER_ROLE" lazy="false"/>
+		
+	</class>
+</hibernate-mapping>

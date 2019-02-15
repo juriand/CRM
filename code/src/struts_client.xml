@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+
+    <!-- Add packages here -->
+    <package name="clientInfo" namespace="/clientInfoManage" extends="struts-default">
+		<action name="client" class="clientAction">
+			<result name="listall_success">/clientManager/clientInfoManage/clientinfoManage.jsp</result>
+			<result name="updateClient_success">/clientManager/clientInfoManage/clientinfo_view.jsp</result>
+			
+			<result name="showContact_success">/clientManager/clientInfoManage/client_contact.jsp</result>
+			<result name="updateContact_success">/clientManager/clientInfoManage/contactinfo.jsp</result>
+			<result name="deleteContact_success">/clientManager/clientInfoManage/client_contact.jsp</result>
+			<result name="addContact_success">/clientManager/clientInfoManage/client_contact.jsp</result>
+			
+			<result name="showCommuHistory_success">/clientManager/clientInfoManage/client_commuhistory.jsp</result>
+			<result name="updateCommuhistory_success">/clientManager/clientInfoManage/commuhistoryinfo.jsp</result>
+			<result name="deleteCommuhistory_success">/clientManager/clientInfoManage/client_commuhistory.jsp</result>
+			<result name="addCommuhistory_success">/clientManager/clientInfoManage/client_commuhistory.jsp</result>
+			
+			<result name="showOrder_success">/clientManager/clientInfoManage/client_order.jsp</result>
+			
+			
+			<result name="error">/fail.jsp</result>
+		</action> 
+    </package>
+    
+    <package name="clientLose" namespace="/clientLoseManage" extends="struts-default">
+		<action name="client" class="clientLoseAction">
+			<result name="list">/clientManager/clientLoseManage/clientLoseManage.jsp</result>
+			<result name="postpone">/clientManager/clientLoseManage/clientLose_postpone.jsp</result>
+			<result name="verify">/clientManager/clientLoseManage/clientLose_verify.jsp</result>
+		</action> 
+    </package>
+    
+    <package name="client_ajax"  namespace="/clientInfoManage_ajax" extends="json-default">
+		<action name="client_ajax" class="clientAction">
+ 			<result name="showclient_success" type="json">
+ 			    <param name="root">client</param>
+ 			</result>
+ 			<result name="showContactInfo_success" type="json">
+ 			    <param name="root">contact</param>
+ 			    <param name="excludeProperties">
+				    contact_client
+				 </param>
+ 			</result>
+ 			<result name="showCommuhistoryInfo_success" type="json">
+ 			    <param name="includeProperties">
+ 			        commuHistory.*,
+ 			        date
+ 			    </param>
+ 			    <param name="excludeProperties">
+				    commuHistory.commuHistory_client
+				 </param>
+ 			</result>
+ 			<result name="showOrderInfo_success" type="json">
+ 			     <param name="includeProperties">
+ 			        historyOrder.*,
+ 			        date
+ 			    </param>
+ 			    <param name="excludeProperties">
+				    historyOrder.order_client
+				 </param>
+ 			</result>
+ 			<result name="init_success" type="json">
+  			    <param name="includeProperties">
+ 			        areas\[\d+\]\.dictionary_id,
+ 			        areas\[\d+\]\.dictionary_value,
+ 			        clientLevels\[\d+\]\.dictionary_id,
+ 			        clientLevels\[\d+\]\.dictionary_value
+ 			    </param>
+ 			</result>
+ 			<result name="error">/fail.jsp</result>
+		</action> 
+		
+    </package>
+    
+    
+    
+  
+
+</struts>

@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!--  
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+		<property name="hibernate.connection.username">ssh</property>
+		<property name="hibernate.connection.password">ssh</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+		
+		-->
+		<!-- 默认是false,改为true,这样就可以显示出sql了 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+	    
+		<mapping resource="com/crm/vo/Role.hbm.xml"/>
+		<mapping resource="com/crm/vo/Authority.hbm.xml"/>
+		<mapping resource="com/crm/vo/RoleAuthorRelation.hbm.xml"/>
+		<mapping resource="com/crm/vo/User.hbm.xml"/>
+		<mapping resource="com/crm/vo/Dictionary.hbm.xml"/>
+		<mapping resource="com/crm/vo/PlanItem.hbm.xml"/>
+		<mapping resource="com/crm/vo/Plan.hbm.xml"/>
+		<mapping resource="com/crm/vo/Opportunity.hbm.xml"/>	
+		<mapping resource="com/crm/vo/Service.hbm.xml"/>
+		<mapping resource="com/crm/vo/Client.hbm.xml"/>
+		<mapping resource="com/crm/vo/Contact.hbm.xml"/>
+		<mapping resource="com/crm/vo/CommuHistory.hbm.xml"/>
+		<mapping resource="com/crm/vo/LoseRecord.hbm.xml"/>	
+		<mapping resource="com/crm/vo/Order.hbm.xml"/>
+		<mapping resource="com/crm/vo/OrderItem.hbm.xml"/>
+		<mapping resource="com/crm/vo/Product.hbm.xml"/>
+
+		
+	</session-factory>
+</hibernate-configuration>

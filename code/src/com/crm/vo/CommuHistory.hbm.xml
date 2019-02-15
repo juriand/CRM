@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="CommuHistory" table="CRM_COMMUHISTORY">
+		<id name="commuHistory_id" column="COMMUHISTORY_ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_COMMUHISTORY_SEQ</param> 
+			</generator>
+		</id>
+		<property name="commuHistory_date" column="COMMUHISTORY_DATE" type="date"/>
+		<property name="commuHistory_location" column="COMMUHISTORY_LOCATION" type="string"/>
+		<property name="commuHistory_outline" column="COMMUHISTORY_OUTLINE" type="string"/>
+		<property name="commuHistory_memo" column="COMMUHISTORY_MEMO" type="string"/>
+		<property name="commuHistory_detail" column="COMMUHISTORY_DETAIL" type="string"/>
+		
+		<many-to-one name="commuHistory_client" column="COMMUHISTORY_CLIENT" lazy="false"/>
+	</class>
+</hibernate-mapping>

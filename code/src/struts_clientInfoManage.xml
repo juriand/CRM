@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+
+    <!-- Add packages here -->
+    <package name="client" namespace="/clientInfoManage" extends="struts-default">
+		<action name="client" class="clientAction">
+<!-- 			<result name="success">/clientInfoManage/clientManager/clientInfoManage/clientinfo_view.jsp</result> -->
+			<result name="listall_success">/clientManager/clientInfoManage/clientinfoManage.jsp</result>
+<!-- 			<result name="showclient_success">/clientManager/clientInfoManage/clientinfo_view.jsp</result> -->
+			<result name="updateClient_success">/clientManager/clientInfoManage/clientinfo_view.jsp</result>
+			<result name="showContact_success">/clientManager/clientInfoManage/client_contact.jsp</result>
+			<result name="updateContact_success">/clientManager/clientInfoManage/contactinfo.jsp</result>
+			<result name="deleteContact_success">/clientManager/clientInfoManage/client_contact.jsp</result>
+			
+			<result name="error">/fail.jsp</result>
+		</action> 
+    </package>
+    
+    <package name="client_ajax"  namespace="/clientInfoManage_ajax" extends="json-default">
+		<action name="client_ajax" class="clientAction">
+ 			<result name="showclient_success" type="json">
+ 			    <param name="root">client</param>
+ 			</result>
+ 			<result name="showContactInfo_success" type="json">
+ 			    <param name="root">contact</param>
+ 			</result>
+ 			<result name="init_success" type="json">
+  			    <param name="includeProperties">
+ 			        areas\[\d+\]\.dictionary_id,
+ 			        areas\[\d+\]\.dictionary_value,
+ 			        clientLevels\[\d+\]\.dictionary_id,
+ 			        clientLevels\[\d+\]\.dictionary_value
+ 			    </param>
+ 			</result>
+ 			<result name="error">/fail.jsp</result>
+		</action> 
+		
+    </package>
+    
+    
+    
+  
+
+</struts>

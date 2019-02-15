@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="Order" table="CRM_HISTORYORDER">
+		<id name="order_id" column="HISTORYORDER_ID" type="string">
+		    <generator class="sequence">
+				<param name="sequence">CRM_ORDER_SEQ</param> 
+			</generator>
+		</id>
+		<property name="order_date" column="HISTORYORDER_DATE" type="date"/>
+		<property name="order_address" column="HISTORYORDER_ADDRESS" type="string"/>
+		<property name="order_totalnum" column="HISTORYORDER_TOTALNUM" type="double"/>
+		<property name="order_status" column="HISTORYORDER_STATUS" type="string"/>
+		
+	    
+	    <many-to-one name="order_client" column="HISTORYORDER_CLIENT" lazy="false"/>
+	    
+	    <set name="orderitems"  cascade="all" inverse="true" lazy="false">
+			<key column="ITEM_ORDERID" />
+			<one-to-many class="com.crm.vo.OrderItem"/>
+		</set>
+	</class>
+</hibernate-mapping>

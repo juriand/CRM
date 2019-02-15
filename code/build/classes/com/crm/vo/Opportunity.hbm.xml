@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.crm.vo">
+	<class name="Opportunity" table="CRM_OPPORTUNITY">
+		<id name="oppo_id" column="OPPORTUNITY_ID" type="string">
+			<generator class="sequence">
+				<param name="sequence">CRM_OPPO_SEQ</param>
+			</generator>
+		</id>
+		<property name="oppo_source" column="OPPORTUNITY_SOURCE" type="string"/>
+		<property name="oppo_clientName" column="OPPORTUNITY_CLIENTNAME" type="string"/>
+		<property name="oppo_probability" column="OPPORTUNITY_PROBABILITY" type="int"/>
+		<property name="oppo_outline" column="OPPORTUNITY_OUTLINE" type="string"/>
+		<property name="oppo_contact" column="OPPORTUNITY_CONTACT" type="string"/>
+		<property name="oppo_contactPhone" column="OPPORTUNITY_CONTACT_PHONE" type="string"/>
+		<property name="oppo_content" column="OPPORTUNITY_CONTENT" type="string"/>
+		<property name="oppo_createTime" column="OPPORTUNITY_CREATE_TIME" type="date"/>
+		<property name="oppo_assignDate" column="OPPORTUNITY_ASSIGN_DATE" type="date"/>
+		<property name="oppo_status" column="OPPORTUNITY_STATUS" type="string"/>
+		
+		<many-to-one name="oppo_creator" column="OPPORTUNITY_CREATOR" lazy="false"/>
+		<many-to-one name="oppo_clientManage" column="OPPORTUNITY_CLIENTMANAGE" lazy="false"/>
+		<many-to-one name="oppo_plan" column="OPPORTUNITY_PLAN" cascade="save-update" lazy="false"/>
+
+	</class>
+</hibernate-mapping>

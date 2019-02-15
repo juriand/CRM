@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true" />
+<!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+	
+
+    <!-- Add packages here -->
+    
+    <package name="analysis" namespace="/analysisManage" extends="struts-default">
+		<action name="analysis" class="analysisAction" >
+			<result name="contribution">/analysisManage/analysis_contribution.jsp</result>
+			<result name="composition">/analysisManage/analysis_composition.jsp</result>
+			<result name="service">/analysisManage/analysis_service.jsp</result>
+			<result name="lose">/analysisManage/analysis_lose.jsp</result>
+		</action> 
+
+    </package>
+
+</struts>
